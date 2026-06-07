@@ -80,30 +80,28 @@ const STRIPE_ONBOARDING_RETURN_URL_FAILURE = 'failure';
  * @param {Object} listingTypeConfig - The listing type configuration
  * @returns {Array<string>} - The allowed tabs for the given process and listing type configuration
  */
-const tabsForListingType = (processName, listingTypeConfig) => {
-  const locationMaybe = displayLocation(listingTypeConfig) ? [LOCATION] : [];
-  const pricingMaybe = displayPrice(listingTypeConfig) ? [PRICING] : [];
-  const deliveryMaybe =
-    displayDeliveryPickup(listingTypeConfig) || displayDeliveryShipping(listingTypeConfig)
-      ? [DELIVERY]
-      : [];
-  const styleOrPhotosTab = requireListingImage(listingTypeConfig) ? [PHOTOS] : [STYLE];
 
-  // You can reorder these panels.
-  // Note 1: You need to change save button translations for new listing flow
-  // Note 2: Ensure that draft listing is created after the first panel
-  //         and listing publishing happens after last panel.
-  // Note 3: The first tab creates a draft listing and title is mandatory attribute for it.
-  //         Details tab asks for "title" and is therefore the first tab in the wizard flow.
-  const tabs = {
-    ['default-booking']: [DETAILS, ...locationMaybe, PRICING, AVAILABILITY, ...styleOrPhotosTab],
-    ['default-purchase']: [DETAILS, PRICING_AND_STOCK, ...deliveryMaybe, ...styleOrPhotosTab],
-    ['default-negotiation']: [DETAILS, ...locationMaybe, ...pricingMaybe, ...styleOrPhotosTab],
-    ['default-inquiry']: [DETAILS, ...locationMaybe, ...pricingMaybe, ...styleOrPhotosTab],
-  };
 
-  return tabs[processName] || tabs['default-inquiry'];
+
+
+
+
+
+const tabsForListingType = () => {
+  return [DETAILS];
 };
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Return translations for wizard tab: label and submit button.
@@ -119,10 +117,18 @@ const tabLabelAndSubmit = (intl, tab, isNewListingFlow, isPriceDisabled, process
 
   let labelKey = null;
   let submitButtonKey = null;
+  
+  
   if (tab === DETAILS) {
-    labelKey = 'EditListingWizard.tabLabelDetails';
-    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveDetails`;
-  } else if (tab === PRICING) {
+  labelKey = 'EditListingWizard.tabLabelDetails';
+  submitButtonKey = 'Toolvanna.activateListing';
+}
+  
+  
+  
+  
+  
+  else if (tab === PRICING) {
     labelKey = 'EditListingWizard.tabLabelPricing';
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePricing`;
   } else if (tab === PRICING_AND_STOCK) {

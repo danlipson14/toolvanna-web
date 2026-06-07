@@ -183,7 +183,7 @@ const TopbarDesktop = props => {
   const signupLinkMaybe = isAuthenticatedOrJustHydrated ? null : <SignupLink />;
   const loginLinkMaybe = isAuthenticatedOrJustHydrated ? null : <LoginLink />;
 
-  const searchFormMaybe = showSearchForm ? (
+  const searchFormMaybe = null ? (
     <TopbarSearchForm
       className={classNames(css.searchLink, { [css.takeAvailableSpace]: giveSpaceForSearch })}
       desktopInputRoot={css.topbarSearchWithLeftPadding}
@@ -211,15 +211,20 @@ const TopbarDesktop = props => {
         alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
         linkToExternalSite={config?.topbar?.logoLink}
       />
-      {searchFormMaybe}
 
-      <CustomLinksMenu
-        currentPage={currentPage}
-        customLinks={customLinks}
-        intl={intl}
-        hasClientSideContentReady={authenticatedOnClientSide || !isAuthenticatedOrJustHydrated}
-        showCreateListingsLink={showCreateListingsLink}
-      />
+      <div className={css.centerNav}>
+  <a href="/browse" className={css.navLink}>Browse Tools</a>
+  <a href="/sell" className={css.navLink}>Sell a Tool</a>
+  <a href="/how-it-works" className={css.navLink}>How It Works</a>
+  <a href="/guarantee" className={css.navLink}>72 Hour Guarantee</a>
+
+  <NamedLink
+    name="NewListingPage"
+    className={css.getPaidBtn}
+  >
+    Get Paid
+  </NamedLink>
+</div>
 
       {inboxLinkMaybe}
       {profileMenuMaybe}

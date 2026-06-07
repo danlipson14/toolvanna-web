@@ -2,32 +2,83 @@
 
 /* Desktop */
 .root {
-  /* Size */
   width: 100%;
-  height: var(--topbarHeightDesktop);
+  height: 60px;
 
-  /* Layout for child components */
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 0 12px 0 0;
+  align-items: center;
 
-  /* fill */
-  background-color: var(--colorWhite);
+  padding: 0 32px;
 
-  /* shadows */
-  box-shadow: var(--boxShadowLight);
+  background: #fff;
+}
 
-  @media (--viewportLarge) {
-    padding: 0 24px 0 0;
-  }
+
+.centerNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navLink {
+  color: #111;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .2s ease;
+}
+
+.navLink:hover {
+  color: #ffc400;
+  text-decoration: none;
+}
+
+.getPaidBtn {
+  background: #ffc400;
+  color: #000 !important;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  padding: 12px 24px;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  transition: all .2s ease;
+}
+
+.getPaidBtn:hover {
+  background: #ffcf29;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.centerNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  gap: 42px;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* logo */
 .logoLink {
   border-bottom: 0px solid;
   transition: var(--transitionStyleButton);
+  
+  margin-right: auto;
+
 }
 .logoLink:hover {
   border-bottom: 4px solid var(--marketplaceColor);
@@ -67,7 +118,7 @@
 }
 
 .takeAvailableSpace {
-  flex-grow: 1;
+  flex-grow: none;
 
   /* At 1024px, the translations might need more space than what searchLink otherwise gets. */
   min-width: 220px;

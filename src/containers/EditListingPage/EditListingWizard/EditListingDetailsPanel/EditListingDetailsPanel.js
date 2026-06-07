@@ -10,6 +10,7 @@ import {
   SCHEMA_TYPE_MULTI_ENUM,
 } from '../../../../util/types';
 import { LISTING_PAGE_PARAM_TYPE_NEW } from '../../../../util/urlHelpers';
+import toolCatalog from '../../../../data/toolcatalog';
 import {
   isFieldForCategory,
   isFieldForListingType,
@@ -37,6 +38,28 @@ import css from './EditListingDetailsPanel.module.css';
  * @param {Object} existingListingTypeInfo
  * @returns an object containing mainly information that can be stored to publicData.
  */
+
+
+const searchTools = (query) => {
+  if (!query) return [];
+
+  const q = query.toLowerCase();
+
+  return toolCatalog
+    .map(tool => {
+      const score =
+        (tool.model.toLowerCase().startsWith(q) ? 3 : 0) +
+        (tool.name.toLowerCase().includes(q) ? 2 : 0) +
+        (tool.brand.toLowerCase().includes(q) ? 1 : 0);
+
+      return { tool, score };
+    })
+    .filter(t => t.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 6)
+    .map(t => t.tool);
+};
+
 const getTransactionInfo = props => {
   const {
     listingTypes = [],
@@ -291,7 +314,11 @@ const getInitialValues = (
  * @param {Object} props.config - The config object
  * @returns {JSX.Element}
  */
+
 const EditListingDetailsPanel = props => {
+
+  const [suggestions, setSuggestions] = React.useState([]);
+
   const {
     className,
     rootClassName,
@@ -310,6 +337,17 @@ const EditListingDetailsPanel = props => {
     updatePageTitle: UpdatePageTitle,
     intl,
   } = props;
+
+
+const handleToolSearch = (e) => {
+  const value = e.target.value;
+
+  const results = searchTools(value);
+
+  setSuggestions(results);
+};
+
+
 
   const classes = classNames(rootClassName || css.root, className);
   const { publicData, state } = listing?.attributes || {};
@@ -376,14 +414,14 @@ const EditListingDetailsPanel = props => {
           { ...panelHeadingProps.messageProps }
         )}
       />
-      <H3 as="h1">
-        <FormattedMessage id={panelHeadingProps.id} values={{ ...panelHeadingProps.values }} />
-      </H3>
+      
 
       {canShowEditListingDetailsForm ? (
         <EditListingDetailsForm
           className={css.form}
           initialValues={initialValues}
+          handleToolSearch={handleToolSearch}
+          suggestions={suggestions}
           saveActionMsg={submitButtonText}
           onSubmit={values => {
             const {

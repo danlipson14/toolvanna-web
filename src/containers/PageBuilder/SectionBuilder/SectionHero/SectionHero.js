@@ -56,22 +56,91 @@ const SectionHero = props => {
   const hasHeaderFields = hasDataInFields([title, description, callToAction], fieldOptions);
 
   return (
-    <SectionContainer
-      id={sectionId}
-      className={className}
-      rootClassName={classNames(rootClassName || css.root)}
-      appearance={appearance}
-      options={fieldOptions}
-    >
-      {hasHeaderFields ? (
-        <header className={defaultClasses.sectionDetails}>
-          <Field data={title} className={defaultClasses.title} options={fieldOptions} />
-          <Field data={description} className={defaultClasses.description} options={fieldOptions} />
-          <Field data={callToAction} className={defaultClasses.ctaButton} options={fieldOptions} />
-        </header>
-      ) : null}
-    </SectionContainer>
-  );
+  <SectionContainer
+    id={sectionId}
+    className={className}
+    rootClassName={classNames(rootClassName || css.root)}
+    
+    options={fieldOptions}
+  >
+    <section className={css.hero}>
+      <div className={css.overlay}></div>
+
+      <div className={css.heroContent}>
+        <div className={css.leftSide}>
+          <h1 className={css.heroTitle}>
+            Turn Your Tools
+            <br />
+            Into <span>Cash. Fast.</span>
+          </h1>
+
+          <p className={css.heroSubtitle}>
+            Search your tool. Choose its condition. We create the listing.
+            If it doesn't sell in 72 hours, we buy it.
+          </p>
+
+          <div className={css.heroButtons}>
+            <a href="/s" className={css.sellButton}>
+              Sell a Tool
+            </a>
+
+            <a href="/search" className={css.browseButton}>
+              Browse Tools
+            </a>
+          </div>
+        </div>
+
+        <div className={css.rightSide}>
+  <div className={css.sellCard}>
+
+    <div className={css.sellBadge}>
+      LIST A TOOL
+    </div>
+
+    <h3 className={css.sellTitle}>
+      Sell In Seconds
+    </h3>
+
+    <p className={css.sellText}>
+      Search your tool, choose condition, and we'll create the listing.
+    </p>
+
+    <div className={css.fakeSearch}>
+      Search model or SKU...
+    </div>
+
+    <div className={css.conditionRow}>
+      <div className={css.conditionBtn}>New</div>
+      <div className={`${css.conditionBtn} ${css.activeCondition}`}>
+        Used Good
+      </div>
+      <div className={css.conditionBtn}>Fair</div>
+    </div>
+
+    <div className={css.infoGrid}>
+      <div className={css.infoCard}>
+        <div className={css.infoNumber}>72 hrs</div>
+        <div className={css.infoText}>Market access</div>
+      </div>
+
+      <div className={css.infoCard}>
+        <div className={css.infoNumber}>We buy it</div>
+        <div className={css.infoText}>If it doesn't sell</div>
+      </div>
+    </div>
+
+      <a href="/s" className={css.sellNowBtn}>
+      Sell My Tool →
+    </a>
+
+  </div>
+</div>
+
+</div>
+
+</section>
+</SectionContainer>
+);
 };
 
 export default SectionHero;

@@ -10,6 +10,7 @@
   "AuthenticationPage.loginWithFacebook": "Continue with Facebook",
   "AuthenticationPage.loginWithGoogle": "Continue with Google",
   "AuthenticationPage.or": "or",
+  "Toolvanna.activateListing": "Activate Listing",
   "AuthenticationPage.resendEmail": "Didn't get the email? {resendEmailLink}.",
   "AuthenticationPage.resendEmailLinkText": "Resend email",
   "AuthenticationPage.resendFailed": "Resending verification email failed. Please try again.",

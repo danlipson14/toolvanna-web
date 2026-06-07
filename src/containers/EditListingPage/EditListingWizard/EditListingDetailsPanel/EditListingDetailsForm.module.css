@@ -1,11 +1,9 @@
 @import '../../../../styles/customMediaQueries.css';
 
 .root {
-  /* Dimensions */
   width: 100%;
   height: auto;
 
-  /* Layout */
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -46,9 +44,432 @@
   }
 }
 
+.activationHeader {
+  background: #050505;
+  color: #ffffff;
+
+  border-radius: 18px;
+  padding: 12px 18px;
+  margin-bottom: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.activationEyebrow {
+  color: #ffc400;
+
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  margin-bottom: 8px;
+}
+
+.activationTitle {
+  color: #ffffff;
+
+  font-size: 24px;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+
+  margin: 0 0 8px 0;
+}
+
+.activationSubtitle {
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 13px;
+  line-height: 1.45;
+
+  margin: 0;
+}
+
+.toolSearchContainer {
+  position: relative;
+}
+
+.suggestionsBox {
+  position: absolute;
+  background: #ffffff;
+
+  border: 1px solid #ddd;
+  border-radius: 14px;
+
+  width: 100%;
+  z-index: 10;
+
+  max-height: 300px;
+  overflow-y: auto;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+
+  padding: 6px;
+  margin-top: -18px;
+}
+
+.suggestionItem {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px;
+
+  cursor: pointer;
+
+  background: #ffffff;
+  border: none;
+  border-radius: 10px;
+
+  text-align: left;
+
+  color: #111111;
+  font-size: 14px;
+  font-weight: 800;
+
+  transition: all 0.15s ease;
+}
+
+.suggestionItem:hover {
+  background: #f5f5f5;
+}
+
+.suggestionImage {
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
+}
+
+.suggestionImageFallback {
+  width: 42px;
+  height: 42px;
+
+  background: #ffc400;
+  color: #050505;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 900;
+  font-size: 18px;
+
+  border-radius: 10px;
+
+  flex-shrink: 0;
+}
+
+.clearToolWrapper {
+  margin-top: -18px;
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.clearToolBtn {
+  background: #f5f5f7;
+  color: #111111;
+
+  border: 1px solid #dddddd;
+  border-radius: 999px;
+
+  padding: 7px 13px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: all 0.15s ease;
+}
+
+.clearToolBtn:hover {
+  background: #ececec;
+  border-color: #cccccc;
+}
+
+.activationCard {
+  background: #ffffff;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 22px;
+
+  padding: 18px;
+  margin-bottom: 24px;
+
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.08);
+}
+
+.selectedToolBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  background: #fafafa;
+
+  border: 1px solid #eeeeee;
+  border-radius: 18px;
+
+  padding: 10px;
+  margin-bottom: 14px;
+}
+
+.selectedToolImageWrap {
+  width: 70px;
+  height: 70px;
+
+  background: #ffffff;
+
+  border: 1px solid #eeeeee;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.selectedToolImage {
+  width: 58px;
+  height: 58px;
+
+  object-fit: contain;
+}
+
+.selectedToolImageFallback {
+  width: 58px;
+  height: 58px;
+
+  background: #ffc400;
+  color: #050505;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 900;
+  font-size: 28px;
+
+  border-radius: 14px;
+}
+
+.selectedToolContent {
+  min-width: 0;
+}
+
+.selectedToolTitle {
+  color: #050505;
+
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+
+  margin: 0 0 6px 0;
+}
+
+
+.conditionSection {
+  margin-bottom: 22px;
+}
+
+.conditionTitle {
+  color: #050505;
+
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 900;
+
+  margin: 0 0 8px 0;
+}
+
+
+
+
+
+
+
+.conditionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+
+  @media (--viewportMedium) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+.priceHeroLabel {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.priceHeroAmount {
+  font-size: 64px;
+  font-weight: 900;
+}
+
+
+
+.conditionCard {
+  background: #ffffff;
+  color: #111111;
+
+  border: 2px solid #e5e5e5;
+  border-radius: 16px;
+
+  padding: 10px 12px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  transition: all 0.16s ease;
+}
+
+.conditionCard:hover {
+  border-color: #111111;
+  transform: translateY(-1px);
+}
+
+.conditionCardSelected {
+  background: #ffc400;
+  border-color: #050505;
+
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.conditionName {
+  color: #050505;
+
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.conditionText {
+  color: rgba(0, 0, 0, 0.62);
+
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+
+ .priceHeroBox {
+  background: #050505;
+  color: #ffffff;
+
+  border-radius: 18px;
+
+  padding: 16px 18px;
+
+  text-align: center;
+
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.priceHeroLabel {
+  color: #ffc400;
+
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  margin-bottom: 4px;
+}
+
+
+.priceHeroInline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.priceHeroLabel {
+  margin-bottom: 0;
+}
+
+.priceHeroAmount {
+  margin-bottom: 0;
+}
+
+
+
+
+
+.priceHeroAmount {
+  color: #ffffff;
+
+  font-size: 58px;
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+
+  margin-bottom: 12px;
+}
+
+.priceHeroText {
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  max-width: 430px;
+  margin: 0 auto;
+}
+
 .selectedLabel {
   composes: label from global;
 }
+
+.priceHeroBox {
+  padding: 10px 18px;
+}
+
+.priceHeroInline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.priceHeroLabel {
+  margin: 0;
+  line-height: 1;
+}
+
+.priceHeroAmount {
+  margin: 0;
+  line-height: 0.9;
+  font-size: 58px;
+}
+
+
+
+.title input,
+.title input:focus,
+.title input:hover {
+  background: #ffffff !important;
+  border-color: #d9d9d9;
+}
+
+
 .selectedValue {
   margin-top: 0;
   margin-bottom: 6px;
@@ -65,13 +486,102 @@
 }
 
 .submitButton {
-  margin-top: auto;
+  margin-top: 8px;
   margin-bottom: 24px;
   flex-shrink: 0;
 
   @media (--viewportLarge) {
     display: inline-block;
-    width: 241px;
-    margin-top: 100px;
+    width: 100%;
+    margin-top: 24px;
+  }
+}
+
+.toolInputWrapper {
+  position: relative;
+}
+
+.clearInsideBtn {
+  position: absolute;
+  right: 12px;
+  top: 38px;
+
+  border: none;
+  background: none;
+
+  font-size: 16px;
+  cursor: pointer;
+  color: #888888;
+}
+
+.clearInsideBtn:hover {
+  color: #000000;
+}
+
+
+.toolSearchContainer input {
+  height: 72px !important;
+  font-size: 22px !important;
+  font-weight: 600;
+
+  border-radius: 16px !important;
+
+  padding-left: 22px !important;
+  padding-right: 22px !important;
+}
+
+
+
+
+
+@media screen and (max-width: 700px) {
+  .activationHeader {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+
+
+
+@media screen and (max-width: 700px) {
+  .toolSearchContainer input {
+    height: 64px !important;
+    font-size: 18px !important;
+  }
+}
+
+
+
+
+
+  .activationTitle {
+    font-size: 26px;
+  }
+
+  .activationCard {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .selectedToolBox {
+  gap: 10px;
+}
+
+  .selectedToolImageWrap {
+    width: 78px;
+    height: 78px;
+  }
+
+  .selectedToolImage {
+    width: 64px;
+    height: 64px;
+  }
+
+  .selectedToolTitle {
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+  .priceHeroAmount {
+    font-size: 48px;
   }
 }

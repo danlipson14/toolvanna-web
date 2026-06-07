@@ -1,14 +1,378 @@
 .root {
-  /* SectionContainer defaults */
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
   width: 100%;
   position: relative;
+}
 
-  /* Hero specific */
-  min-height: 80vh;
+.hero {
+  position: relative;
+
+  margin-top: -80px;
+  padding-top: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.88) 0%,
+      rgba(0,0,0,.75) 45%,
+      rgba(0,0,0,.65) 100%
+    ),
+    url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1800");
+
+  background-size: cover;
+  background-position: center;
+
+  min-height: 280px;
+
+  display: flex;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+
+  padding: 10px 140px;
+
+  display: grid;
+  grid-template-columns: 1fr 390px;
+  gap: 24px;
+
+  align-items: center;
+}
+
+.leftSide {
+  color: #fff;
+}
+
+.heroTitle {
+  margin: 0;
+
+  font-size: 52px;
+  font-weight: 900;
+
+  line-height: .9;
+  letter-spacing: -3px;
+
+  max-width: 560px;
+}
+
+.heroTitle span {
+  color: #ffc400;
+}
+
+.heroSubtitle {
+  margin-top: 12px;
+
+  max-width: 520px;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  line-height: 1.25;
+
+  color: #fff;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.sellButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 170px;
+  height: 60px;
+
+  padding: 0 24px;
+
+  background: #ffc400;
+  color: #000;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+  font-weight: 900;
+
+  transition: .2s;
+}
+
+.sellButton:hover {
+  transform: translateY(-2px);
+}
+
+.browseButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 170px;
+  height: 60px;
+
+  padding: 0 24px;
+
+  border: 1px solid rgba(255,255,255,.35);
+
+  color: #fff;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  backdrop-filter: blur(12px);
+}
+
+.rightSide {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+}
+
+.sellCard {
+  width: 100%;
+  max-width: 430px;
+
+  background: rgba(10,10,10,.94);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 16px;
+
+  padding: 18px;
+
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.sellBadge {
+  display: inline-flex;
+
   align-items: center;
+  justify-content: center;
+
+  height: 34px;
+
+  padding: 0 14px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,196,0,.45);
+
+  color: #ffc400;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: .08em;
+}
+
+.sellTitle {
+  margin: 8px 0;
+
+  color: #fff;
+
+  font-size: 30px;
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: -1px;
+}
+
+.sellText {
+  margin-bottom: 12px;
+
+  color: rgba(255,255,255,.82);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.fakeSearch {
+  width: 100%;
+  height: 42px;
+
+  background: #fff;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 14px;
+
+  color: #666;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  margin-bottom: 8px;
+}
+
+.conditionRow {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+
+  gap: 6px;
+
+  margin-bottom: 10px;
+}
+
+.conditionBtn {
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,.04);
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  border-radius: 10px;
+
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.activeCondition {
+  background: #ffc400;
+  color: #000;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+
+  gap: 8px;
+
+  margin-bottom: 10px;
+}
+
+.infoCard {
+  background: rgba(255,255,255,.04);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 12px;
+
+  padding: 10px;
+
+  min-height: 52px;
+}
+
+.infoNumber {
+  color: #ffc400;
+
+  font-size: 16px;
+  font-weight: 900;
+
+  line-height: 1;
+}
+
+.infoText {
+  margin-top: 4px;
+
+  color: rgba(255,255,255,.75);
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sellNowBtn {
+  width: 100%;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffc400;
+
+  color: #000;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 900;
+}
+
+@media (max-width: 1200px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .heroTitle {
+    font-size: 56px;
+  }
+
+  .sellCard {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: 60px;
+  }
+
+  .heroContent {
+    padding: 12px;
+    gap: 18px;
+  }
+
+  .heroTitle {
+    font-size: 42px;
+    max-width: 100%;
+  }
+
+  .heroSubtitle {
+    font-size: 16px;
+    margin-top: 10px;
+    max-width: 100%;
+  }
+
+  .heroButtons {
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .sellButton,
+  .browseButton {
+    min-width: auto;
+    width: 100%;
+    height: 60px;
+  }
+
+  .sellCard {
+    padding: 18px;
+  }
+
+  .sellTitle {
+    font-size: 28px;
+  }
 }
